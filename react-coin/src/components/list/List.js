@@ -1,6 +1,7 @@
 import React from 'react';
 import { handleResponse } from '../../helpers';
 import { API_URL } from '../../config';
+import Loading from '../common/Loading';
 import './Table.css';
 
 class List extends React.Component {
@@ -46,8 +47,16 @@ class List extends React.Component {
     }
     
     render() {
+        const { loading, error, currencies } = this.state;
+
+        //Render loading component, if loading state is true
         if (this.state.loading) {
-            return <div>Loading...</div>
+            return <div className="loading-container"><Loading /></div>
+        }
+
+        //Render error message is error state occur while fetching data.
+        if (this.state.error) {
+            return <div className="error">{this.state.error}</div>
         }
 
         return (
