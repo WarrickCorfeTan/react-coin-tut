@@ -38,7 +38,6 @@ class Search extends React.Component {
                     loading: false,
                     searchResults: result,
                  });
-                
             });
 
         console.log(this.state);
